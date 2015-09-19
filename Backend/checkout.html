@@ -1,0 +1,60 @@
+<html ng-app="sampleApp">
+  <head>
+  	<!-- Firebase -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <!-- AngularJS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+	<script src="App.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body ng-controller="SampleCtrl">
+  	<div id="header">
+		<h1>Furniture</h1>
+	</div>
+	<div id="nav">
+		Changing the university experience<br>
+	</div>
+  	<div id="section">
+		<h1>Checkout</h1>
+
+    <div>Shipping Address:</div>
+	
+	<p>
+
+  	    Address: <input type='text' id='address' placeholder='Address'>
+    	  Postal Code: <input type='text' id='postalCode' placeholder='Postal Code'>
+        Phone Number: <input type='text' id='phoneNumber' placeholder='Phone Number'>
+  	</p>
+    <p>
+   	<button onclick="submitData()" name="submitButton">Submit</button>
+   	<input type="text" ng-model="data.text"/>
+   		<!-- <h1>You said: {{ data.text }}</h1> -->
+  	</p>
+	</div>
+
+
+    <div id="footer">
+		gl hf
+	</div>
+
+    <script>
+    //link to our Firebase database
+      	var myDataRef = new Firebase('https://incandescent-fire-731.firebaseio.com/People');
+        var userEmail = myDataRef.getAuth().password.email;
+        var userID = myDataRef.getAuth().uid;
+        var personDataRef = myDataRef.child(userID);
+    //console.log(myDataRef.getAuth);
+    //function getPersonData(){
+        personDataRef.on("value", function(snapshot){
+            $('#address').val(snapshot.child('Address').val());
+            $('#postalCode').val(snapshot.child('Postal Code').val());
+            $('#phoneNumber').val(snapshot.child('Telephone').val());
+        });
+
+    </script>
+
+  </body>
+</html>
