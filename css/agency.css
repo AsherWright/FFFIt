@@ -6,7 +6,7 @@
 
 body {
     overflow-x: hidden;
-    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "PT Sans Narrow","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .text-muted {
@@ -175,7 +175,7 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-default .navbar-brand {
-    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+    font-family: "Roboto Condensed","Helvetica Neue",Helvetica,Arial,cursive;
     color: #fed136;
 }
 
@@ -367,7 +367,7 @@ section h3.section-subheading {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: rgba(254,209,54,.9);
+    background: rgba(74, 251, 166,.9);
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     transition: all ease .5s;
@@ -714,6 +714,27 @@ section#contact:-ms-input-placeholder {
 
 section#contact .text-danger {
     color: #e74c3c;
+}
+
+ul.gallery{
+cursor:pointer;
+margin-left: 9px;
+margin-top: 1px;
+width:16px;
+height:24px;
+position:relative;
+display:none;
+}
+
+#gallery li {
+width: 50px;
+height: 50px;
+display: inline;
+margin-right: 3px;
+}
+#gallery #main-img {
+background: url(images/bg_img.png) no-repeat 0 0;
+padding: 26px;
 }
 
 footer {
